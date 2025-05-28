@@ -1,0 +1,52 @@
+version: 0.1
+endianess: 'little' # or  'big'
+description: 
+- 'I am coming from MOCCa-v... and then ... and then ...'
+- 'comment 2'
+prefix: 'example' 
+
+# System information
+N: 20
+Z: 20
+
+# Full space information
+mesh_type: 'half-integer' # or 'integer'
+nx: 32
+ny: 32
+nz: 96
+dx: 1.25   # step
+dy: 1.25   # (optional)
+dz: 1.25   # (optional)
+
+symmetry: 'none' # or 'ev8'
+
+# Time information=
+frames: 1 # (optional)
+t0: 0.    # (optional)
+dt: 1.    # (optional)
+
+# List of spatial functions
+variables:
+  - {name: 'rho_n', 
+     n_components: 1, # (default=1)
+     type: 'real', 
+     unit: 'fm^-3', 
+     suffix: 'rho_n.wdat',
+     ev8_sym:[+1, +1, +1] # (in the case of ev8 sym)
+  }
+  - {name: 'j', 
+     n_components: 3,
+     type: 'real',
+     unit: 'fm^-3',
+     suffix: 'example_rho_n.wdat',
+     ev8_sym: [+1,+1,+1, -1,-1,-1, +1,+1,+1]
+  }
+
+# The mean-fiel
+wavefunction:
+  representation: 'canonical' # or 'quasi-particle ...
+  n_neutron_states: 30  # This is the number with no symmetries
+  n_proton_states: 30  # This is the number with no symmetries
+  file: 'wf.dat' 
+
+
