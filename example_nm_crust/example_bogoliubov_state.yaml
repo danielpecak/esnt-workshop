@@ -1,0 +1,31 @@
+prefix: 'example' 
+
+# Space information
+nx: 32
+ny: 32
+nz: 96
+dx: 1.25   # spacing
+dy: 1.25   # spacing
+dz: 1.25   # spacing
+
+cycles: 1 # (optional)
+t0: 0.    # (optional)
+dt: 1.    # (optional)
+
+variables:
+  - {name: 'rho_n', type: 'real', unit: 'fm^-3', format: 'wdat', file: 'example_rho_n.wdat'}
+  - {name: 'rho_p', type: 'real', unit: 'fm^-3', format: 'wdat', file: 'example_rho_p.wdat'}
+
+# Case of a Slater determinant
+wavefunction: # is always a Bogoliubov state
+  representation: 'canonical'
+  n_protons: 20, 
+  n_neutrons: 20, 
+  file: 'wf.dat', 
+
+  # waves: {n_protons: 20, n_neutrons: 20, file: 'wf.dat', type: 'Complex', unit: 'xxx'}
+  # type: 'Complex', 
+  # unit: 'xxx'
+
+
+
